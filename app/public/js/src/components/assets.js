@@ -421,7 +421,7 @@ var CreateAsset = React.createClass({
 
 		if (this.props.reissue) {
 			// TODO - popup error when issueAddress does not have any non-colored UTXOs
-			args.issueAddress = this.state.issueAddress;
+			args.issueAddress  = args.financeChangeAddress = this.state.issueAddress;
 			args.reissueable = true;
 		} else {
 			// choose issue address with at least one non-colored UTXO
@@ -1024,8 +1024,6 @@ var SendAsset = React.createClass({
 				}
 			]
 		}
-
-		console.log(args);
 
 		coloredcoins.sendAsset(args, function (err, ans) {
 			$("#splash").hide();
