@@ -87,7 +87,7 @@ var App = React.createClass({
 			CCtxs: function (callback) {
 				coloredcoins.getTransactions(function (err, transactions) {
 					if (err) console.error(err)
-
+                    transactions = transactions || [];
 					// remove all tx that have no assets
 					var ccTransactions = transactions.filter(function (tx) {
 						if (tx.ccdata && tx.ccdata.length)
